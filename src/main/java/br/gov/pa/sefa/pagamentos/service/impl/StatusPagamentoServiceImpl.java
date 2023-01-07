@@ -11,16 +11,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class StatusPagamentoServiceImpl {
-	 private final IPagamentoRepository pagamentoRepository;
-	 private final IValidarStatusPagamento validarStatusPagamento;
-	 private final IPagamentoService pagamentoService;
+public class StatusPagamentoServiceImpl implements IStatusPagamentoService {
 
-	 @Override
-	 public void atualizarStatus(Integer codigoPagamento, StatusPagmentoRequest statusPagmento) {
-		 Pagamento pagamentoAtual = pagamentoService.obterPorId(codigoPagamento);
-		 validarStatusPagamento.validar(statusPagmento.getStatus(), pagamentoAtual.getStatus());
-	     pagamentoAtual.setStatus(statusPagmento.getStatus());
-	     pagamentoRepository.save(pagamentoAtual);
-	 }
+    private final IPagamentoRepository pagamentoRepository;
+    private final IValidarStatusPagamento validarStatusPagamento;
+    private final IPagamentoService pagamentoService;
+
+    @Override
+    public void atualizarStatus(Integer codigoPagamento, StatusPagmentoRequest statusPagmento) {
+        Pagamento pagamentoAtual = pagamentoService.obterPorId(codigoPagamento);
+        validarStatusPagamento.validar(statusPagmento.getStatus(), pagamentoAtual.getStatus());
+        pagamentoAtual.setStatus(statusPagmento.getStatus());
+        pagamentoRepository.save(pagamentoAtual);
+    }
 }

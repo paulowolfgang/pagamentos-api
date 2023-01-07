@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ValidarStatusProcessamentoImpl implements IValidarStatusPagamento {
-	@Override
+    @Override
     public void validar(StatusProcessamento statusRequest, StatusProcessamento statusAtual) {
         if (statusAtual.equals(StatusProcessamento.SUCESSO)) {
             throw new StatusProcessamentoNaoAlteradoException();

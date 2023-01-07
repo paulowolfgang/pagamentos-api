@@ -11,15 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
-import br.gov.pa.sefa.pagamentos.entity.Pagamento;
-import lombok.RequiredArgsConstructor;
-
 @Service
 @RequiredArgsConstructor
 public class PagamentoFilterServiceImpl implements IPagamentoFilterService {
-	private final IPagamentoRepositoryCustom pagamentoRepository;
+
+    private final IPagamentoRepositoryCustom pagamentoRepository;
 
     @Override
     public List<PagamentoFilterResponse> filtrar(PagamentoFilterRequest request) {

@@ -10,10 +10,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
-public class PagamentoServiceImpl {
-	private final IPagamentoRepository pagamentoRepository;
+public class PagamentoServiceImpl implements IPagamentoService {
+
+    private final IPagamentoRepository pagamentoRepository;
 
     @Override
     public void remover(Integer codigoPagamento) {
