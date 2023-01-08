@@ -5,6 +5,7 @@ import br.gov.pa.sefa.pagamentos.entity.Pagamento;
 import br.gov.pa.sefa.pagamentos.exception.PagamentoNaoEncontradoException;
 import br.gov.pa.sefa.pagamentos.repository.IPagamentoRepository;
 import br.gov.pa.sefa.pagamentos.service.IPagamentoService;
+import br.gov.pa.sefa.pagamentos.service.validator.IValidarCriacaoPagamento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -22,12 +23,14 @@ class PagamentoServiceImplTest {
 
     @Mock
     private IPagamentoRepository pagamentoRepository;
+    @Mock
+    private IValidarCriacaoPagamento validarCriacaoPagamento;
     private IPagamentoService pagamentoService;
     private Pagamento pagamento;
 
     @BeforeEach
     void init() {
-        pagamentoService = new PagamentoServiceImpl(pagamentoRepository);
+        pagamentoService = new PagamentoServiceImpl(pagamentoRepository, validarCriacaoPagamento);
         pagamento = PagamentoBuilder.pagamentoComStatusPendente().get();
     }
 
