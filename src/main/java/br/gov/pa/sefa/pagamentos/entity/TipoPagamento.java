@@ -1,7 +1,7 @@
 package br.gov.pa.sefa.pagamentos.entity;
 
 public enum TipoPagamento {
-    Boleto,
+    BOLETO,
     CARTAO_CREDITO,
     CARTAO_DEBITO,
     PIX
