@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class PagamentoFilterRequest {
+
     private Integer codigo;
     private String cpf;
     private String cnpj;

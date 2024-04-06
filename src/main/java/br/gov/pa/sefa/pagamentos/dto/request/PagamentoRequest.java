@@ -19,14 +19,10 @@ public class PagamentoRequest {
 
     @CNPJ
     private String cnpj;
-
     private String numeroCartao;
 
     @NotNull
     @Positive
     private BigDecimal valor;
-
     private TipoPagamento tipoPagamento;
-
-
 }

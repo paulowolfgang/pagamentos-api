@@ -20,5 +20,4 @@ public class PagamentoMapper {
     public static void copyToProperties(PagamentoRequest request, Pagamento pagamento) {
         mapper.map(request, pagamento);
     }
-
 }
