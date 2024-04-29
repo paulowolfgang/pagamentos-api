@@ -1,10 +1,17 @@
 package br.gov.pa.sefa.pagamentos.entity;
 
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Builder
+@Setter
+@Getter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Pagamento {
 
     @Id
@@ -12,14 +19,14 @@ public class Pagamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
-    private String cpf;
-    private String cnpj;
-    private String numeroCartao;
-    private BigDecimal valor;
-
     @Enumerated(EnumType.STRING)
     private TipoPagamento tipoPagamento;
 
     @Enumerated(EnumType.STRING)
     private StatusProcessamento status;
+
+    private String cpf;
+    private String cnpj;
+    private String numeroCartao;
+    private BigDecimal valor;
 }
